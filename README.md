@@ -1,12 +1,14 @@
-## Quickstart this project for viewing Student Details.
-Add, update and delete existing students. 
+## Quickstart this project for viewing Student Details
 
-# Navigate to the following folder
-* Angular CLI
+* Clone the project using the following command: 
+git clone https://github.com/Chit1Kaur/StudentManager.git
 
-# Then run the following to build and run the project:
+* cd angular-cli
 
-* npm start         <- development build
-* npm run build     <- production/aot build
+* Install the project dependencies using:
+npm i
 
-# Then navigate to http://localhost:4200 to view.
+* Build & start the application using:
+npm start
+
+* Navigate to http://localhost:4200 to view
