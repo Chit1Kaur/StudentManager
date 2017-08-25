@@ -1,0 +1,29 @@
+.data-center {
+    color: green;
+}
+.students-grid {
+    width: 615px; 
+    height: 250px;
+}
+.student-info-modal{
+    padding: 10px;
+}
+.student-info-modal div h1{
+    margin-top: 0;
+} 
+
+.student-info-modal form .form-group label{
+    float: left;
+    width: 140px;
+    padding-left: 10px;
+    line-height: 30px;
+}
+
+.student-info-modal form .form-group .form-control{
+   width: auto; 
+}
+
+a.link{
+    cursor: pointer;
+}
+

@@ -1,0 +1,64 @@
+<div>
+        <button (click)="addNewStudent()"> Add New Student</button>
+</div>
+<br/>
+<ag-grid-angular class="ag-fresh students-grid"
+                 enableSorting 
+                 [rowData]="rowData"
+                 [columnDefs]="columnDefs"
+                 [gridOptions]="gridOptions"
+                 (rowClicked)="onRowClicked($event)">
+                 (gridReady)="onGridReady($event)">
+</ag-grid-angular>
+<ng-template #templateRef let-dialogRef="dialogRef" let-ctx="dialogRef.context.studentInfo">
+    <div class="student-info-modal">
+        <div>
+            <h1>{{dialogRef.context.studentInfo.id ? 'Edit Student Details' : 'Add New Student Details'}}</h1>
+        </div>
+        <div>
+            <form #studentForm="ngForm">
+                <!-- STUDENT NAME --> 
+                <div class="form-group">
+                    <label for="name">Name* </label>
+                    <input type="text" required class="form-control" id="name"
+                        [(ngModel)]="ctx.name" name="name"  #name="ngModel">
+                </div>
+                <!-- STUDENT AGE -->
+                <div class="form-group">
+                    <label for="age">Age* </label>
+                    <input  type="number" required class="form-control" id="age"
+                        maxlength="3" [(ngModel)]="ctx.age" name="age">
+                </div>
+                <!-- STUDENT SELECTED COURSE -->
+                <div class="form-group">
+                    <label for="course">Course</label>
+                    <select class="form-control"  id="course"
+                            required
+                            [(ngModel)]="ctx.course" name="course">
+                        <option *ngFor="let crs of ctx.courses" [value]="crs">{{crs}}</option>
+                    </select>
+                </div>
+                <!-- TOTAL FEES -->
+                <div class="form-group">
+                    <label for="totalFees">Total Fees(In Rs)* </label>
+                    <input  type="number" required class="form-control" res id="totalFees"
+                        [(ngModel)]="ctx.totalFees" name="totalFees">
+                </div>
+                 <!-- Fees Paid -->
+                <div class="form-group">
+                    <label for="feesPaid">Fees Paid</label>
+                    <select class="form-control"  id="feesPaid"
+                            required
+                            [(ngModel)]="ctx.feesPaid" name="feesPaid">
+                        <option *ngFor="let fpd of ctx.feesPaidOptions" [value]="fpd">{{fpd}}</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn pull-left" (click)="dialogRef.close(false)">Cancel</button>
+                    <button [disabled]="!studentForm.form.valid" class="btn btn-primary pull-right" (click)="dialogRef.close(ctx)">Save</button>
+                </div>
+          </form>
+        </div>
+    </div>
+</ng-template>
